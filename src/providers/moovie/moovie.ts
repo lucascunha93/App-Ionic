@@ -12,9 +12,7 @@ export class MoovieProvider {
 
   private baseApiPath = "https://api.themoviedb.org/3";
   
-  constructor(public http: Http) {
-    console.log('Hello MoovieProvider Provider');
-  }
+  constructor(public http: Http) {}
 
   getMovies( endereco: string ) {
     return  this.http.get( this.baseApiPath + endereco + this.pegarChaveApi() + "&language=pt-BR");

@@ -1,12 +1,29 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Págna 1</ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content>
+  <ion-grid padding>
+    <ion-row>
+      <ion-col class="text-page" col-11>
+        <h2 col-12>Filmes</h2>
+      </ion-col>
+      <ion-col class="text-page" col-1>
+        <div text-right>
+          <ion-icon name="ios-search-outline"></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-<ion-content padding>
-  <h2>Refina sua pesquisa</h2>
-  <a (click)="goToFeedPage( '/movie/popular?api_key=' )">
+  <ion-segment>
+    <ion-segment-button class="segment-button segment-activated" value="populares">
+      Populares
+    </ion-segment-button>
+    <ion-segment-button value="mais-avaliados">
+      Mais avaliados
+    </ion-segment-button>
+    <ion-segment-button value="em-cartaz">
+      Em cartaz
+    </ion-segment-button>
+  </ion-segment>
+  <!--<a (click)="goToFeedPage( '/movie/popular?api_key=' )">
     <button ion-button full>Populares</button>
   </a>
   <a (click)="goToFeedPage( '/movie/top_rated?api_key=' )">
@@ -15,4 +32,15 @@
   <a (click)="goToFeedPage( '/movie/upcoming?api_key=' )">
     <button ion-button full>Em cartaz</button>
   </a>
+</ion-content>
+-->
+  <ion-content class="card-background-page">
+    <div class="filmes-content" col-12>
+      <ion-card *ngFor="let filme of lista_filmes" col-6>
+        <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.backdrop_path ">
+        <div class="card-title">{{ filme.title }}</div>
+      </ion-card>
+    </div>
+  </ion-content>
+
 </ion-content>
